@@ -26,17 +26,16 @@ remotes::install_github("pipe")
 ```
 ## What's different from *magrittr* ?
 
-Here are the main differences
+The main differences are:
 
-* pipes are object of class `pipe` and of class either `standard_pipe` or `compound_pipe`, none of them is special implementation-wise
+* Pipes are object of class `pipe` and of class either `standard_pipe` or `compound_pipe`, none of them is special implementation-wise
 
 * Every step of the chain is executed in the same environment, as can be seen
  by the use of `%B>%` above
  
-* new pipe `%B>%` allows browsing the pipe chain step by step
+* The new pipe `%B>%` allows browsing the pipe chain step by step
 
-calling `iris %>% head %B>% dim %>% length` will open place you right at the browser call
-below
+calling `iris %>% head %B>% dim %>% length` will open place you right at the browser call below :
 
 ```{r, eval = FALSE}
 #> Called from: (function (.) 
@@ -50,15 +49,16 @@ below
 #> })(iris)
 ```
 
-* new pipe `%S>%` allows the use of *rlang*'s `!!!` operator to splice dots in
+* The new pipe `%S>%` allows the use of *rlang*'s `!!!` operator to splice dots in
 any function 
 
 ```{r}
+library(pipe)
 c(a = 1, b = 2) %S>% data.frame()
 ```
 
 * additional pipes can be defined easily by calling `new_pipe()`, which is used
-internally to create pipes included in the package.
+internally to create pipes included in the package
 
 * `:::`, `::` and `$` get a special treatment to solve a common issue
 
@@ -69,7 +69,7 @@ x <- list(y = dim)
 iris %>% x$y
 ```
 
-* It fails explicitly in some cases rather than allowing strange behavior silently :
+* It fails explicitly in some cases rather than allowing strange behavior silently
 
 ```{r, error = TRUE}
 iris %>% head %<>% dim
@@ -77,7 +77,7 @@ iris %>% head %<>% dim
 ```
 
 
-* it's slightly slower than *magrittr* (see *fast_pipe* if speed is an issue!)
+* It's slightly slower than *magrittr* (see *fast_pipe* if speed is an issue!)
 
 ```{r}
 microbenchmark::microbenchmark(
