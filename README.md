@@ -164,13 +164,5 @@ We enumerate all the pipes of the package below :
 ## A few notes
 
 This is just an experiment, it’s likely to change. I’ve also been
-working on the package *fast\_pipe* which is a closer equivalent to
+working on the package *fastpipe* which is a closer equivalent to
 *magrittr* focused on being more robust and faster.
-
-I’ve worked on two pipe packages in the past, names *mmpipe* (archived)
-and *pipes* which were forks of `magrittr`.
-
-I believe the current approach is stronger and that the package *pipes*
-should use *pipe* to define its operators and that `%B>%` and `%S>%` so
-that the present package contain only the equivalents original
-*magrittr* pipes.
