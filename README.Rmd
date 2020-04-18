@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 # pipe
 
-This package proposes an alternative tot he pipe from 'magrittr'. 
+This package proposes an alternative to the pipe from 'magrittr'. 
 It's named the same and passes all the 'magrittr' test so can easily be a drop-in
 replacement, its main advantages is that it is implemented more consistently and allows definition of new pipes. It also solves a few issues of the original pipe. 
 
